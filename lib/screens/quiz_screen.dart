@@ -23,9 +23,9 @@ class _QuizScreenState extends State<QuizScreen> {
   Answer answer;
 
   var selectedOptions = {0: false, 1: false, 2: false, 3: false};
+
   var showAnswer = false;
   var answeredCorrectly = false;
-
   var allAnswersCorrect = false;
 
   @override
@@ -88,11 +88,17 @@ class _QuizScreenState extends State<QuizScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            Text(widget.services.questionsRepo.sectionAt(widget.section).short),
+        title: Text(
+            widget.services.questionsRepo.sectionAt(widget.section).short +
+                " - " +
+                question.id),
         actions: [
           IconButton(
-            icon: Icon(Icons.favorite_border),
+            icon: Text(widget.game.answeredCorrectly.length.toString() +
+                " / " +
+                widget.services.questionsRepo
+                    .numberOfQuestions(widget.section)
+                    .toString()),
             onPressed: () {},
           )
         ],
@@ -109,15 +115,12 @@ class _QuizScreenState extends State<QuizScreen> {
             ))
           : Column(
               children: [
-                Text(
-                  "GFK " + question.id,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                ),
-                Divider(
-                  height: 1,
-                ),
+                // Text(
+                //   "GFK " + question.id,
+                //   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                // ),
                 SizedBox(
-                  height: 5,
+                  height: 15,
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -131,7 +134,11 @@ class _QuizScreenState extends State<QuizScreen> {
                   ]),
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 15,
+                ),
+                Divider(
+                  height: 2,
+                  thickness: 2,
                 ),
                 Expanded(
                   child: ListView.separated(

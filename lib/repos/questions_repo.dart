@@ -22,6 +22,10 @@ class QuestionsRepo {
     return sections[index];
   }
 
+  int numberOfQuestions(int index) {
+    return sections[index].q.length;
+  }
+
   Question getRandom(int sectionIndex) {
     final section = sections[sectionIndex];
     return section.q[Random().nextInt(section.q.length - 1)];
@@ -41,7 +45,6 @@ class QuestionsRepo {
 
     do {
       question = section.q[Random().nextInt(sectionLength)];
-      print(question.id);
     } while (game.answeredCorrectly.contains(question.id));
 
     return question;
