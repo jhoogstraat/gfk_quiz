@@ -722,16 +722,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EU) Nr.528/2012 Art. 69 (2) a), e), j), k)"
       }
@@ -1039,16 +1039,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §1 (1, 2)"
       }
@@ -1237,16 +1237,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §6 (1) Nr. 1, Nr. 2, Nr. 3 und Nr. 5"
       }
@@ -1775,16 +1775,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §2 (5) i.V.m. ChemG § 3 Nr. 10"
       }
@@ -1794,16 +1794,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §2 (4) i.V.m. ChemG § 3 Nr. 10"
       }
@@ -2133,16 +2133,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §16 (3)"
       }
@@ -3172,16 +3172,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG)Nr.1272/2008 Art. 35 (2) i.V.m. Anh. II"
       }
@@ -3359,16 +3359,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "ChemVerbotsV § 8 (3)"
       }
@@ -3546,16 +3546,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "ChemVerbotsV § 8 (2)"
       }
@@ -3709,16 +3709,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "ChemVerbotsV § 8 Abs. 3 Nr. 2"
       }
@@ -3762,16 +3762,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "ChemVerbotsV § 5 (1) i.V.m. § 10"
       }
@@ -3936,16 +3936,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV16 (4)"
       }
@@ -4812,16 +4812,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "d +c": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "d +c"
+          "d",
+          "c"
         ],
         "source": "GefStoffV §2 (1)"
       }
@@ -5013,7 +5013,7 @@
           "b",
           "d"
         ],
-        "source": "TRGS 900 +GefStoffV § 2 (8)"
+        "source": "TRGS 900 + GefStoffV § 2 (8)"
       }
     ]
   },
@@ -5283,16 +5283,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO Nr.1907/2006 Art. 119 Abs. 1 f), Anh. I Nr. 1.4"
       }
@@ -5600,16 +5600,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1907/2006 Art. 14"
       }
@@ -5703,16 +5703,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO1272/2008 Art. 2, 21, 22, Anh. IV"
       }
@@ -5817,16 +5817,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1907/2006 Anh. II; TRGS 220 Nr. 4"
       }
@@ -5892,16 +5892,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1907/2006 Anh. II; TRGS 220 Nr. 4"
       }
@@ -5911,16 +5911,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1907/2006 Anh. II; TRGS 220 Nr. 4"
       }
@@ -6004,16 +6004,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §14"
       }
@@ -6163,16 +6163,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -6214,16 +6214,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -6266,16 +6266,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -7792,16 +7792,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -7860,16 +7860,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -7997,16 +7997,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -8051,16 +8051,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -8171,16 +8171,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -8447,16 +8447,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -8571,16 +8571,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1; VwVwS"
       }
@@ -8660,16 +8660,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -9136,16 +9136,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §8 (5)"
       }
@@ -9377,16 +9377,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. IV Tab 6.2 (P270)"
       }
@@ -9446,16 +9446,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffV §6 (1 - 14)"
       }
@@ -10443,16 +10443,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -11293,16 +11293,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "* (SDB)"
       }
@@ -12641,16 +12641,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -12660,16 +12660,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -13089,16 +13089,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -13324,7 +13324,7 @@
           "a",
           "b"
         ],
-        "source": "VO (EU) Nr.528/2012 Anh. V Produktarten 18 +19 i.V.m. Art.9 (1) a)"
+        "source": "VO (EU) Nr.528/2012 Anh. V Produktarten 18 + 19 i.V.m. Art.9 (1) a)"
       }
     ]
   },
@@ -13376,16 +13376,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -13743,16 +13743,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -13931,16 +13931,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "PflSchG §31; VO (EG) Nr. 1107/2009 Art. 65; VO (EU) Nr.547/2011 Anh. I"
       }
@@ -14143,16 +14143,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -14212,16 +14212,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EU) Nr.528/2012 Art. 69 (2) g), h), l), j)"
       }
@@ -14523,16 +14523,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "PflSchAnwVAnl. 1 zu § 1 Nrn. 4, 7, 25, 41"
       }
@@ -14745,16 +14745,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "PflSchG §31; VO (EU) Nr. 547/2011 Anh. I"
       }
@@ -14764,16 +14764,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "PflSchG §31; VO (EU) Nr. 547/2011 Anh. I"
       }
@@ -14944,16 +14944,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1107/2009 Art. 3 Nr. 9"
       }
@@ -15229,16 +15229,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1107/2009 Art. 3 Nr. 9; PflSchG § 9 (1)"
       }
@@ -15375,16 +15375,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "ChemVerbotsV § 6 (1); GefStoffV Anh. I Nr. 4.2"
       }
@@ -15592,16 +15592,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -15683,16 +15683,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "GefStoffVAnh. I Nr. 3"
       }
@@ -15702,16 +15702,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "Produktdatenbank der BAuA"
       }
@@ -16209,16 +16209,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "VO (EG) Nr.1272/2008 Anh. VI Tab. 3.1"
       }
@@ -16549,16 +16549,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -16568,16 +16568,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }
@@ -16825,16 +16825,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "BienenschutzV"
       }
@@ -17398,16 +17398,16 @@
     "correct": {
       "a": true,
       "b": true,
-      "c": false,
-      "d": false,
-      "c +d": true
+      "c": true,
+      "d": true
     },
     "sources": [
       {
         "answers": [
           "a",
           "b",
-          "c +d"
+          "c",
+          "d"
         ],
         "source": "*"
       }

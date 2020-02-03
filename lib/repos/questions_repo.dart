@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:math';
+import 'package:gfk_questionnaire/models/game.dart';
 import 'package:gfk_questionnaire/models/section.dart';
 import 'package:flutter/services.dart' show rootBundle;
 
@@ -28,5 +29,19 @@ class QuestionsRepo {
 
   Question getAt(int sectionIndex, int questionIndex) {
     return sections[sectionIndex].q[questionIndex];
+  }
+
+  Question getNewOrIncorrect(Game game, int sectionIndex) {
+    var section = sections[sectionIndex];
+  	var sectionLength = section.q.length;
+
+    Question question;
+
+    do {
+      question = section.q[Random().nextInt(sectionLength)];
+      print(question.id);
+    } while (game.answeredCorrectly.contains(question.id));
+
+    return question;
   }
 }
