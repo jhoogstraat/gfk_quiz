@@ -8234,7 +8234,8 @@
       {
         "id": "II 4 57",
         "descr": [
-          "Welcher Stoff wäre mit diesem Schild richtig gekennzeichnet?"],
+          "Welcher Stoff wäre mit diesem Schild richtig gekennzeichnet?"
+        ],
         "img": "II_4_57",
         "table": true,
         "a": {
@@ -10832,7 +10833,9 @@
       },
       {
         "id": "II 7 44",
-        "descr": [],
+        "descr": [
+          "Entspricht dieses Schild den Kennzeichnungsvorschriften der CLP-Verordnung [VO (EG) Nr. 1272/2008]?"
+        ],
         "img": "II_7_44",
         "a": {
           "txt": "Ja."
@@ -10849,7 +10852,9 @@
       },
       {
         "id": "II 7 45",
-        "descr": [],
+        "descr": [
+          "Entspricht dieses Schild den Kennzeichnungsvorschriften der CLP-Verordnung [VO (EG) Nr. 1272/2008]?",
+        ],
         "img": "II_7_45",
         "a": {
           "txt": "Ja."
@@ -10866,7 +10871,9 @@
       },
       {
         "id": "II 7 46",
-        "descr": [],
+        "descr": [
+          "Entspricht dieses Schild den Kennzeichnungsvorschriften der CLP-Verordnung [VO (EG) Nr. 1272/2008]?"
+        ],
         "img": "II_7_46",
         "a": {
           "txt": "Ja."
