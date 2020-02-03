@@ -33,7 +33,9 @@ class QuestionsRepo {
 
   Question getNewOrIncorrect(Game game, int sectionIndex) {
     var section = sections[sectionIndex];
-  	var sectionLength = section.q.length;
+    var sectionLength = section.q.length;
+
+    if (sectionLength == game.answeredCorrectly.length) return null;
 
     Question question;
 

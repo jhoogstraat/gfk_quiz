@@ -26,6 +26,8 @@ class _QuizScreenState extends State<QuizScreen> {
   var showAnswer = false;
   var answeredCorrectly = false;
 
+  var allAnswersCorrect = false;
+
   @override
   void initState() {
     question = widget.services.questionsRepo
@@ -41,9 +43,13 @@ class _QuizScreenState extends State<QuizScreen> {
     setState(() {
       question = widget.services.questionsRepo
           .getNewOrIncorrect(widget.game, widget.section);
-      answer = widget.services.answersRepo.getAnswer(question.id);
 
-      print(answer.array);
+      if (question != null) {
+        answer = widget.services.answersRepo.getAnswer(question.id);
+        print(answer.array);
+      } else {
+        allAnswersCorrect = true;
+      }
 
       // Reset All
       showAnswer = false;
@@ -68,7 +74,7 @@ class _QuizScreenState extends State<QuizScreen> {
         widget.game.answeredCorrectly.add(question.id);
         widget.game.answersIncorrectly
             .removeWhere((element) => element == question.id);
-            print(widget.game.answeredCorrectly.length);
+        print(widget.game.answeredCorrectly.length);
       } else if (!widget.game.answersIncorrectly.contains(question.id)) {
         widget.game.answersIncorrectly.add(question.id);
         print(widget.game.answersIncorrectly.length);
@@ -91,78 +97,88 @@ class _QuizScreenState extends State<QuizScreen> {
           )
         ],
       ),
-      body: Column(
-        children: [
-          Text(
-            "GFK " + question.id,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          Divider(
-            height: 1,
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 12),
-            child: Column(children: [
-              Text(
-                question.descr.join(" "),
-                style: TextStyle(fontSize: 20),
-              ),
-              if (question.img != null)
-                Image.asset('assets/images/' + question.img + ".png")
-            ]),
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Expanded(
-            child: ListView.separated(
-                itemBuilder: (context, index) {
-                  return Container(
-                    color: showAnswer
-                        ? (answer.array[index]
-                            ? Colors.green.shade100
-                            : Colors.red.shade100)
-                        : Colors.transparent,
-                    child: CheckboxListTile(
-                        title: _optionRow(_optionAtIndex(index)),
-                        value: selectedOptions[index],
-                        onChanged: (newVal) {
-                          if (!showAnswer) _setSelected(index, newVal);
-                        }),
-                  );
-                },
-                separatorBuilder: (_, __) => Divider(
-                      height: 1,
+      body: allAnswersCorrect
+          ? Center(
+              child: Text(
+              "Alle Fragen richtig beantwortet!",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                  color: Colors.green,
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold),
+            ))
+          : Column(
+              children: [
+                Text(
+                  "GFK " + question.id,
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+                Divider(
+                  height: 1,
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 12),
+                  child: Column(children: [
+                    Text(
+                      question.descr.join(" "),
+                      style: TextStyle(fontSize: 20),
                     ),
-                itemCount: 4),
-          ),
-          RaisedButton(
-            child: Text(showAnswer
-                ? (answeredCorrectly
-                    ? "Alles richtig! Weiter"
-                    : "Leider nicht richtig.. Weiter")
-                : "Auflösen"),
-            padding: const EdgeInsets.symmetric(horizontal: 35),
-            color: showAnswer
-                ? (answeredCorrectly ? Colors.green : Colors.red)
-                : Theme.of(context).primaryColor,
-            textColor: Colors.white,
-            onPressed: () {
-              if (!showAnswer &&
-                  selectedOptions.values
-                      .reduce((value, element) => value | element)) {
-                _checkAnswer();
-              } else if (showAnswer) _newQuestion();
-            },
-          ),
-          SizedBox(
-            height: 20,
-          )
-        ],
-      ),
+                    if (question.img != null)
+                      Image.asset('assets/images/' + question.img + ".png")
+                  ]),
+                ),
+                SizedBox(
+                  height: 5,
+                ),
+                Expanded(
+                  child: ListView.separated(
+                      itemBuilder: (context, index) {
+                        return Container(
+                          color: showAnswer
+                              ? (answer.array[index]
+                                  ? Colors.green.shade100
+                                  : Colors.red.shade100)
+                              : Colors.transparent,
+                          child: CheckboxListTile(
+                              title: _optionRow(_optionAtIndex(index)),
+                              value: selectedOptions[index],
+                              onChanged: (newVal) {
+                                if (!showAnswer) _setSelected(index, newVal);
+                              }),
+                        );
+                      },
+                      separatorBuilder: (_, __) => Divider(
+                            height: 1,
+                          ),
+                      itemCount: 4),
+                ),
+                RaisedButton(
+                  child: Text(showAnswer
+                      ? (answeredCorrectly
+                          ? "Alles richtig! Weiter"
+                          : "Leider nicht richtig.. Weiter")
+                      : "Auflösen"),
+                  padding: const EdgeInsets.symmetric(horizontal: 35),
+                  color: showAnswer
+                      ? (answeredCorrectly ? Colors.green : Colors.red)
+                      : Theme.of(context).primaryColor,
+                  textColor: Colors.white,
+                  onPressed: () {
+                    if (!showAnswer &&
+                        selectedOptions.values
+                            .reduce((value, element) => value | element)) {
+                      _checkAnswer();
+                    } else if (showAnswer) _newQuestion();
+                  },
+                ),
+                SizedBox(
+                  height: 20,
+                )
+              ],
+            ),
     );
   }
 

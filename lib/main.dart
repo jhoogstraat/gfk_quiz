@@ -16,6 +16,14 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text("Giftschein Fragen"),
+          actions: [
+            IconButton(
+              icon: Icon(Icons.info),
+              onPressed: () {
+                
+              },
+            )
+          ],
         ),
         body: FutureBuilder<Services>(
           future: Services.loadDefault(),

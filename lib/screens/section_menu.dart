@@ -6,7 +6,7 @@ class SectionMenu extends StatelessWidget {
   final Services services;
 
   SectionMenu(this.services);
-
+  
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -17,12 +17,14 @@ class SectionMenu extends StatelessWidget {
         itemBuilder: (context, index) {
           var section = services.questionsRepo.sectionAt(index);
           return ListTile(
-            title: Text(section.short + " - " + section.title),
-            onTap: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => QuizScreen(services, index))),
-          );
+              title: Text(section.short + " - " + section.title),
+              onTap: () async {
+                await Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) =>
+                            QuizScreen(services, index)));
+              });
         });
   }
 }
