@@ -30,8 +30,9 @@ class _QuizScreenState extends State<QuizScreen> {
 
   @override
   void initState() {
-    question = widget.services.questionsRepo.getAt(widget.section, 44);
-    // question = widget.services.questionsRepo.getNewOrIncorrect(widget.game, widget.section);
+    // question = widget.services.questionsRepo.getAt(widget.section, 44);
+    question = widget.services.questionsRepo
+        .getNewOrIncorrect(widget.game, widget.section);
     answer = widget.services.answersRepo.getAnswer(question.id);
 
     print(answer.array);
@@ -90,8 +91,8 @@ class _QuizScreenState extends State<QuizScreen> {
       appBar: AppBar(
         title: Text(
             widget.services.questionsRepo.sectionAt(widget.section).short +
-                " - " +
-                question.id),
+                " - Frage " +
+                question.id.split(" ").last),
         actions: [
           IconButton(
             icon: Text(widget.game.answeredCorrectly.length.toString() +
@@ -114,66 +115,65 @@ class _QuizScreenState extends State<QuizScreen> {
                   fontWeight: FontWeight.bold),
             ))
           : Column(children: [
-              Flexible(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 12),
-                        child: Column(children: [
-                          Text(
-                            question.descr.join(" "),
-                            style: TextStyle(fontSize: 20),
-                          ),
-                          if (question.img != null)
-                            Image.asset(
-                                'assets/images/' + question.img + ".png")
-                        ]),
-                      ),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Divider(
-                        height: 2,
-                        thickness: 2,
-                      ),
-                      ListView.separated(
-                          shrinkWrap: true,
-                          primary: false,
-                          itemBuilder: (context, index) {
-                            return Container(
-                              color: showAnswer
-                                  ? (answer.array[index]
-                                      ? Colors.green.shade100
-                                      : Colors.red.shade100)
-                                  : Colors.transparent,
-                              child: CheckboxListTile(
-                                  title: _optionRow(_optionAtIndex(index)),
-                                  value: selectedOptions[index],
-                                  onChanged: (newVal) {
-                                    if (!showAnswer)
-                                      _setOptionSelected(index, newVal);
-                                  }),
-                            );
-                          },
-                          separatorBuilder: (_, __) => Divider(
-                                height: 1,
+              Expanded(
+                child: Padding(
+                  padding:
+                      const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+                  child: Card(
+                    elevation: 2,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 12, vertical: 8),
+                            child: Column(children: [
+                              Text(
+                                question.descr.join(" "),
+                                style: TextStyle(fontSize: 20),
                               ),
-                          itemCount: 4),
-                    ],
+                              if (question.img != null)
+                                Image.asset(
+                                    'assets/images/' + question.img + ".png")
+                            ]),
+                          ),
+                          Divider(
+                            height: 2,
+                            thickness: 2,
+                          ),
+                          ListView.separated(
+                              shrinkWrap: true,
+                              primary: false,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  color: showAnswer
+                                      ? (answer.array[index]
+                                          ? Colors.green.shade100
+                                          : Colors.red.shade100)
+                                      : Colors.transparent,
+                                  child: CheckboxListTile(
+                                      title: _optionRow(_optionAtIndex(index)),
+                                      value: selectedOptions[index],
+                                      onChanged: (newVal) {
+                                        if (!showAnswer)
+                                          _setOptionSelected(index, newVal);
+                                      }),
+                                );
+                              },
+                              separatorBuilder: (_, __) => Divider(
+                                    height: 1,
+                                  ),
+                              itemCount: 4),
+                        ],
+                      ),
+                    ),
                   ),
                 ),
               ),
-              Divider(height: 2,thickness: 2,),
               Container(
                 padding:
-                    const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+                    const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
                 width: double.infinity,
-                color: Colors.white,
-                // width: double.infinity,
                 child: RaisedButton(
                   shape: RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(18.0)),
