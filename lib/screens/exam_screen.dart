@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:gfk_questionnaire/widgets/ListTiles/attempt_list_tile.dart';
 import 'package:gfk_questionnaire/widgets/quiz_button.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
 
@@ -79,24 +80,6 @@ class ExamScreen extends StatefulWidget {
   _ExamScreenState createState() => _ExamScreenState();
 }
 
-// AppBar(
-//           title: Text(
-//               widget.services.questionsRepo.sectionAt(widget.section).short +
-//                   (quizFinished
-//                       ? " - Fertig!"
-//                       : " - Frage " + question.id.split(" ").last)),
-//           actions: [
-//             IconButton(
-//               icon: Text(widget.game.answeredCorrectly.length.toString() +
-//                   " / " +
-//                   widget.services.questionsRepo
-//                       .numberOfQuestions(widget.section)
-//                       .toString()),
-//               onPressed: () {},
-//             )
-//           ],
-//         ),
-
 class _ExamScreenState extends State<ExamScreen> {
   var selection = [false, false, false, false];
   var answerCorrect;
@@ -121,33 +104,99 @@ class _ExamScreenState extends State<ExamScreen> {
               onPressed: () {},
             )
           ]),
-      body: Column(
-        children: [
-          Expanded(
-            child: QuestionCard(
-                question: widget.game.currentQuestion,
-                answer: widget.game.currentAnswer,
-                showAnswer: answerCorrect != null,
-                selection: selection,
-                onChanged: (option, newState) {
-                  setState(() => selection[option] = newState);
-                }),
-          ),
-          Container(
-            width: double.infinity,
-            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-            child: QuizButton(
-                enabled: true,
-                answer: answerCorrect,
-                onCheckAnswer: () => setState(
-                    () => answerCorrect = widget.game.checkAnswer(selection)),
-                onNextQuestion: () {
-                  widget.game.nextQuestion();
-                  setState(() => _reset());
-                }),
-          )
-        ],
-      ),
+      body: quizCompleted
+          ? _resultList()
+          : Column(
+              children: [
+                Expanded(
+                  child: QuestionCard(
+                      question: widget.game.currentQuestion,
+                      answer: widget.game.currentAnswer,
+                      showAnswer: answerCorrect != null,
+                      selection: selection,
+                      onChanged: (option, newState) {
+                        setState(() => selection[option] = newState);
+                      }),
+                ),
+                Container(
+                  width: double.infinity,
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+                  child: QuizButton(
+                      enabled: true,
+                      answer: answerCorrect,
+                      onCheckAnswer: () => setState(() =>
+                          answerCorrect = widget.game.checkAnswer(selection)),
+                      onNextQuestion: () {
+                        widget.game.nextQuestion();
+                        setState(() => _reset());
+                      }),
+                )
+              ],
+            ),
+    );
+  }
+
+  Widget _resultList() {
+    var attempts = widget.game.attempts.entries.toList();
+    attempts.sort((e1, e2) => e2.value.compareTo(e1.value));
+
+    var sumFirstTry = 0;
+    attempts
+        .where((element) => element.value == 1)
+        .forEach((element) => sumFirstTry++);
+
+    var sumFailed = attempts.length - sumFirstTry;
+
+    return Column(
+      children: [
+        SizedBox(height: 10),
+        Text(
+          "Sofort richtig beantwortet: " +
+              sumFirstTry.toString() +
+              " (" +
+              (sumFirstTry / attempts.length * 100).toStringAsFixed(0) +
+              "%)",
+          style: TextStyle(fontSize: 20),
+        ),
+        SizedBox(height: 5),
+        Text(
+          "Öfter versucht: " +
+              sumFailed.toString() +
+              " (" +
+              (sumFailed / attempts.length * 100).toStringAsFixed(0) +
+              "%)",
+          style: TextStyle(fontSize: 20),
+        ),
+        SizedBox(height: 10),
+        Expanded(
+          child: ListView.separated(
+              itemBuilder: (_, index) => AttemptListTile(
+                    questionId: attempts[index].key,
+                    attempts: attempts[index].value,
+                    onTap: (qId) => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => Scaffold(
+                                  appBar: AppBar(
+                                    title: Text(qId),
+                                  ),
+                                  body: QuestionCard(
+                                    question: widget.game.completedQuestions
+                                        .singleWhere((q) => q.id == qId),
+                                    answer: widget.game.services.answersRepo
+                                        .getAnswer(qId),
+                                    showAnswer: true,
+                                    selection: [false, false, false, false],
+                                    onChanged: (_, __) {},
+                                  ),
+                                ),
+                            fullscreenDialog: true)),
+                  ),
+              separatorBuilder: (_, __) => Divider(height: 1),
+              itemCount: attempts.length),
+        ),
+      ],
     );
   }
 
