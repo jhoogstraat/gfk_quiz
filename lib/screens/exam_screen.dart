@@ -1,75 +1,10 @@
-import 'dart:math';
-
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:gfk_questionnaire/widgets/ListTiles/attempt_list_tile.dart';
-import 'package:gfk_questionnaire/widgets/quiz_button.dart';
-import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:gfk_questionnaire/models/section.dart';
 
-import '../models/answer.dart';
-import '../models/section.dart';
-import '../services.dart';
-import '../utils/unique_random.dart';
+import '../models/new_game.dart';
+import '../widgets/ListTiles/attempt_list_tile.dart';
 import '../widgets/question_card.dart';
-
-class NewGame {
-  final Services services;
-  final List<Question> openQuestions;
-
-  Question currentQuestion;
-  Answer currentAnswer;
-  List<Question> completedQuestions = []; // per section
-  Map<String, int> attempts = {};
-
-  int get totalQuestions => openQuestions.length + completedQuestions.length;
-
-  NewGame(this.services, this.openQuestions) {
-    nextQuestion();
-  }
-
-  nextQuestion() {
-    if (openQuestions.isNotEmpty) currentQuestion = openQuestions.first;
-    currentAnswer = services.answersRepo.getAnswer(currentQuestion.id);
-    print(currentAnswer.array);
-  }
-
-  bool checkAnswer(List<bool> answer) {
-    attempts.update(currentQuestion.id, (value) => value + 1,
-        ifAbsent: () => 1);
-
-    if (listEquals(currentAnswer.array, answer)) {
-      completedQuestions.add(currentQuestion);
-      openQuestions.remove(currentQuestion);
-      return true;
-    }
-
-    return false;
-  }
-
-  // 20 random Questions from GFK I, II and III
-  factory NewGame.exam(Services services) {
-    List<Question> gfk1 = [];
-    List<Question> gfk2 = [];
-    List<Question> gfk3 = [];
-
-    for (var i in List<int>.generate(25, (i) => i)) {
-      if (i < 9)
-        gfk1.addAll(services.questionsRepo.getAll(section: i));
-      else if (i < 17)
-        gfk2.addAll(services.questionsRepo.getAll(section: i));
-      else
-        gfk3.addAll(services.questionsRepo.getAll(section: i));
-    }
-
-    var questions = [
-      ...Random().uniqueInts(gfk1.length, 20).map((r) => gfk1[r]),
-      ...Random().uniqueInts(gfk2.length, 20).map((r) => gfk2[r]),
-      ...Random().uniqueInts(gfk3.length, 20).map((r) => gfk3[r]),
-    ];
-
-    return NewGame(services, questions);
-  }
-}
+import '../widgets/quiz_button.dart';
 
 class ExamScreen extends StatefulWidget {
   final NewGame game;
@@ -82,12 +17,16 @@ class ExamScreen extends StatefulWidget {
 
 class _ExamScreenState extends State<ExamScreen> {
   var selection = [false, false, false, false];
-  var answerCorrect;
+  var isCorrectAnswer;
 
-  bool get quizCompleted => widget.game.openQuestions.isEmpty;
+  bool quizCompleted = false;
+  bool get optionsSelected =>
+      selection.firstWhere((s) => s, orElse: () => false);
 
   String _gameStats() {
-    return widget.game.completedQuestions.length.toString() +
+    return (widget.game.completedQuestions.length +
+                widget.game.failedQuestions.length)
+            .toString() +
         " / " +
         widget.game.totalQuestions.toString();
   }
@@ -109,24 +48,30 @@ class _ExamScreenState extends State<ExamScreen> {
           : Column(
               children: [
                 Expanded(
-                  child: QuestionCard(
-                      question: widget.game.currentQuestion,
-                      answer: widget.game.currentAnswer,
-                      showAnswer: answerCorrect != null,
-                      selection: selection,
-                      onChanged: (option, newState) {
-                        setState(() => selection[option] = newState);
-                      }),
+                  child: Padding(
+                    padding:
+                        const EdgeInsets.only(left: 8.0, top: 8.0, right: 8.0),
+                    child: QuestionCard(
+                        question: widget.game.currentQuestion,
+                        answer: widget.game.currentAnswer,
+                        showAnswer: isCorrectAnswer != null,
+                        selection: selection,
+                        onChanged: (option, newState) {
+                          setState(() => selection[option] = newState);
+                        }),
+                  ),
                 ),
                 Container(
                   width: double.infinity,
                   padding:
                       const EdgeInsets.symmetric(horizontal: 30, vertical: 8),
                   child: QuizButton(
-                      enabled: true,
-                      answer: answerCorrect,
-                      onCheckAnswer: () => setState(() =>
-                          answerCorrect = widget.game.checkAnswer(selection)),
+                      enabled: optionsSelected,
+                      correctAnswer: isCorrectAnswer,
+                      onCheckAnswer: () {
+                        setState(() => isCorrectAnswer =
+                            widget.game.checkAnswer(selection));
+                      },
                       onNextQuestion: () {
                         widget.game.nextQuestion();
                         setState(() => _reset());
@@ -138,70 +83,88 @@ class _ExamScreenState extends State<ExamScreen> {
   }
 
   Widget _resultList() {
-    var attempts = widget.game.attempts.entries.toList();
-    attempts.sort((e1, e2) => e2.value.compareTo(e1.value));
-
-    var sumFirstTry = 0;
-    attempts
-        .where((element) => element.value == 1)
-        .forEach((element) => sumFirstTry++);
-
-    var sumFailed = attempts.length - sumFirstTry;
-
-    return Column(
-      children: [
-        SizedBox(height: 10),
-        Text(
-          "Sofort richtig beantwortet: " +
-              sumFirstTry.toString() +
-              " (" +
-              (sumFirstTry / attempts.length * 100).toStringAsFixed(0) +
-              "%)",
-          style: TextStyle(fontSize: 20),
-        ),
-        SizedBox(height: 5),
-        Text(
-          "Öfter versucht: " +
-              sumFailed.toString() +
-              " (" +
-              (sumFailed / attempts.length * 100).toStringAsFixed(0) +
-              "%)",
-          style: TextStyle(fontSize: 20),
-        ),
-        SizedBox(height: 10),
-        Expanded(
-          child: ListView.separated(
-              itemBuilder: (_, index) => AttemptListTile(
-                    questionId: attempts[index].key,
-                    attempts: attempts[index].value,
-                    onTap: (qId) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (_) => Scaffold(
-                                  appBar: AppBar(
-                                    title: Text(qId),
-                                  ),
-                                  body: QuestionCard(
-                                    question: widget.game.completedQuestions
-                                        .singleWhere((q) => q.id == qId),
-                                    answer: widget.game.services.answersRepo
-                                        .getAnswer(qId),
-                                    showAnswer: true,
-                                    selection: [false, false, false, false],
-                                    onChanged: (_, __) {},
-                                  ),
-                                ),
-                            fullscreenDialog: true)),
+    return SingleChildScrollView(
+      child: Column(
+        children: [
+          SizedBox(height: 10),
+          Text(
+            "Richtig beantwortet: " +
+                widget.game.completedQuestions.length.toString() +
+                " (" +
+                (widget.game.completedQuestions.length /
+                        widget.game.totalQuestions *
+                        100)
+                    .toStringAsFixed(0) +
+                "%)",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 5),
+          Text(
+            "Falsch beantwortet: " +
+                widget.game.failedQuestions.length.toString() +
+                " (" +
+                (widget.game.failedQuestions.length /
+                        widget.game.totalQuestions *
+                        100)
+                    .toStringAsFixed(0) +
+                "%)",
+            style: TextStyle(fontSize: 20),
+          ),
+          SizedBox(height: 10),
+          ListView.separated(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) => Container(
+                    color: Colors.red.shade100,
+                    child: ListTile(
+                      title: Text(widget.game.failedQuestions[index].id),
+                      onTap: () => _pushQuestionDetail(
+                          question: widget.game.failedQuestions[index]),
+                    ),
                   ),
               separatorBuilder: (_, __) => Divider(height: 1),
-              itemCount: attempts.length),
+              itemCount: widget.game.failedQuestions.length),
+          ListView.separated(
+              shrinkWrap: true,
+              physics: NeverScrollableScrollPhysics(),
+              itemBuilder: (_, index) => Container(
+                    color: Colors.green.shade100,
+                    child: ListTile(
+                      title: Text(widget.game.completedQuestions[index].id),
+                      onTap: () => _pushQuestionDetail(
+                          question: widget.game.completedQuestions[index]),
+                    ),
+                  ),
+              separatorBuilder: (_, __) => Divider(height: 1),
+              itemCount: widget.game.completedQuestions.length),
+        ],
+      ),
+    );
+  }
+
+  _pushQuestionDetail({Question question}) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (_) => Scaffold(
+          appBar: AppBar(title: Text(question.id)),
+          body: QuestionCard(
+            question: question,
+            answer: widget.game.services.answersRepo.getAnswer(question.id),
+            showAnswer: true,
+            selection: [false, false, false, false],
+            onChanged: (_, __) {},
+          ),
         ),
-      ],
+        fullscreenDialog: true,
+      ),
     );
   }
 
   _reset() {
-    answerCorrect = null;
+    isCorrectAnswer = null;
     selection = [false, false, false, false];
+
+    if (widget.game.openQuestions.isEmpty) quizCompleted = true;
   }
 }

@@ -26,7 +26,7 @@ class _QuizScreenState extends State<QuizScreen> {
   Answer answer;
 
   var selection = [false, false, false, false];
-  var answeredCorrectly = null;
+  var answeredCorrectly;
   var quizFinished = false;
 
   @override
@@ -131,7 +131,7 @@ class _QuizScreenState extends State<QuizScreen> {
           width: double.infinity,
           child: QuizButton(
             enabled: selection.reduce((value, element) => value | element),
-            answer: answeredCorrectly,
+            correctAnswer: answeredCorrectly,
             onCheckAnswer: () => _checkAnswer(),
             onNextQuestion: () => _nextQuestion(),
           ),

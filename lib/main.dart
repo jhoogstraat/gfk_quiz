@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'models/new_game.dart';
 import 'screens/exam_screen.dart';
 import 'screens/section_menu.dart';
 import 'services.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       home: Builder(
         builder: (context) => Scaffold(
           appBar: AppBar(
-            title: Text("Giftschein Fragen"),
+            title: Text("Giftschein Quiz"),
             actions: [
               IconButton(
                 icon: Icon(Icons.school),
