@@ -63,9 +63,9 @@ class NewGame {
     }
 
     var questions = [
-      ...Random().uniqueInts(gfk1.length, 1).map((r) => gfk1[r]),
-      ...Random().uniqueInts(gfk2.length, 1).map((r) => gfk2[r]),
-      ...Random().uniqueInts(gfk3.length, 1).map((r) => gfk3[r]),
+      ...Random().uniqueInts(gfk1.length, 20).map((r) => gfk1[r]),
+      ...Random().uniqueInts(gfk2.length, 20).map((r) => gfk2[r]),
+      ...Random().uniqueInts(gfk3.length, 20).map((r) => gfk3[r]),
     ];
 
     return NewGame(services, questions, retryFailed: false);
