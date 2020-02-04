@@ -24,6 +24,8 @@ class Question {
   Option c;
   Option d;
 
+  List<Option> get array => [a, b, c, d];
+
   Question.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     descr = json['descr'].cast<String>();

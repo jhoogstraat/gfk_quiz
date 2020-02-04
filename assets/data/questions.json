@@ -456,11 +456,10 @@
       {
         "id": "I 1 26",
         "descr": [
-          "Sie wollen für ein Biozidprodukt werben. Welche Aussage ist zutreffend?",
-          "„Biozidprodukte vorsichtig verwenden. Vor Gebrauch stets Etikett und Produktinformationen lesen.“"
+          "Sie wollen für ein Biozidprodukt werben. Welche Aussage ist zutreffend?"
         ],
         "a": {
-          "txt": "Der Werbung für ein Biozidprodukt muss in einer sich deutlich vom Rest der Werbung abhebenden Weise Folgendes hinzugefügt werden:"
+          "txt": "Der Werbung für ein Biozidprodukt muss in einer sich deutlich vom Rest der Werbung abhebenden Weise Folgendes hinzugefügt werden: „Biozidprodukte vorsichtig verwenden. Vor Gebrauch stets Etikett und Produktinformationen lesen.“"
         },
         "b": {
           "txt": "Die Werbung für Biozidprodukte ist grundsätzlich verboten."
@@ -511,11 +510,10 @@
       {
         "id": "I 1 29",
         "descr": [
-          "Welche Aussage trifft auf die CLP-Verordnung [VO (EG) Nr. 1272/2008] zur Einstufung, Kennzeichnung und Verpackung von Stoffen und Gemischen zu?",
-          "„Zubereitung“."
+          "Welche Aussage trifft auf die CLP-Verordnung [VO (EG) Nr. 1272/2008] zur Einstufung, Kennzeichnung und Verpackung von Stoffen und Gemischen zu?"
         ],
         "a": {
-          "txt": "Der Begriff „Gemisch“ hat die gleiche Bedeutung wie der früher verwendete Begriff"
+          "txt": "Der Begriff „Gemisch“ hat die gleiche Bedeutung wie der früher verwendete Begriff „Zubereitung“"
         },
         "b": {
           "txt": "„Gefahr“ und „Achtung“ sind Signalwörter im Sinne der Verordnung."
@@ -1130,8 +1128,7 @@
       {
         "id": "I 2 23",
         "descr": [
-          "Zu welcher Gefahrenklasse gehört folgende Definition:",
-          "„Ein Stoff ist gefährlich, wenn er eine irreversible Hautschädigung erzeugt“"
+          "Zu welcher Gefahrenklasse gehört folgende Definition: „Ein Stoff ist gefährlich, wenn er eine irreversible Hautschädigung erzeugt“"
         ],
         "a": {
           "txt": "Ätz-/Reizwirkung auf die Haut"
@@ -2161,14 +2158,13 @@
       {
         "id": "I 3 13",
         "descr": [
-          "Wer verfügt über die Sachkunde nach § 11 Chemikalien-Verbotsverordnung?",
-          "§ 11 Abs. 2 entspricht"
+          "Wer verfügt über die Sachkunde nach § 11 Chemikalien-Verbotsverordnung?"
         ],
         "a": {
           "txt": "alle Gärtner"
         },
         "b": {
-          "txt": "Personen, die die Prüfung nach früheren Vorschriften bestanden haben, die der Prüfung nach"
+          "txt": "Personen, die die Prüfung nach früheren Vorschriften bestanden haben, die der Prüfung nach § 11 Abs. 2 entspricht"
         },
         "c": {
           "txt": "Personen mit praktischer Erfahrung im Umgang mit giftigen Stoffen"
@@ -2728,8 +2724,7 @@
       {
         "id": "I 3 44",
         "descr": [
-          "Bestimmte, nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] zu kennzeichnende Stoffe oder Gemische dürfen nur mit Erlaubnis der zuständigen Behörde an den privaten Endverbraucher abgegeben werden.",
-          "Dieses sind Stoffe oder Gemische, die"
+          "Bestimmte, nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] zu kennzeichnende Stoffe oder Gemische dürfen nur mit Erlaubnis der zuständigen Behörde an den privaten Endverbraucher abgegeben werden. Dieses sind Stoffe oder Gemische, die"
         ],
         "a": {
           "img": "ghs_05_aetzwirkung_acid_red_neu",
@@ -2751,8 +2746,7 @@
       {
         "id": "I 3 45",
         "descr": [
-          "Was ist nach der Chemikalien-Verbotsverordnung erforderlich, wenn Sie mit dem Gefahrenpiktogramm GHS08 (Gesundheitsgefahr), dem Signalwort „Gefahr“ und dem",
-          "H-Satz H 360F (Kann die Fruchtbarkeit beeinträchtigen) gekennzeichnete Stoffe in den Verkehr bringen wollen?"
+          "Was ist nach der Chemikalien-Verbotsverordnung erforderlich, wenn Sie mit dem Gefahrenpiktogramm GHS08 (Gesundheitsgefahr), dem Signalwort „Gefahr“ und dem H-Satz H 360F (Kann die Fruchtbarkeit beeinträchtigen) gekennzeichnete Stoffe in den Verkehr bringen wollen?"
         ],
         "a": {
           "txt": "eine Ausbildung als Einzelhandelskaufmann"
@@ -3188,8 +3182,7 @@
       {
         "id": "I 3 69",
         "descr": [
-          "Welche der nachfolgend aufgeführten Stoffe bzw. Gemische dürfen an den privaten Endverbraucher weder durch Automaten noch sonst frei zugänglich in den Verkehr gebracht werden?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welche der nachfolgend aufgeführten Stoffe bzw. Gemische dürfen an den privaten Endverbraucher weder durch Automaten noch sonst frei zugänglich in den Verkehr gebracht werden? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Benzonitril"
@@ -3630,8 +3623,7 @@
       {
         "id": "I 4 6",
         "descr": [
-          "Die Lösemittelhaltige Farben- und Lack-Verordnung (ChemVOCFarbV) enthält zusätzliche Kennzeichnungsvorschriften für Produkte, die dieser Verordnung unterliegen.",
-          "Welche Kennzeichnung entspricht den Vorschriften der ChemVOCFarbV vollständig?"
+          "Die Lösemittelhaltige Farben- und Lack-Verordnung (ChemVOCFarbV) enthält zusätzliche Kennzeichnungsvorschriften für Produkte, die dieser Verordnung unterliegen. Welche Kennzeichnung entspricht den Vorschriften der ChemVOCFarbV vollständig?"
         ],
         "a": {
           "txt": "VOC-Gehalt: 500 g/l"
@@ -4233,9 +4225,7 @@
       {
         "id": "I 5 4",
         "descr": [
-          "Wer Stoffe oder Gemische, die nach der der CLP-Verordnung [VO (EG) Nr. 1272/2008] mit dem Piktogramm GHS03",
-          "(Flamme über einem Kreis)",
-          "zu kennzeichnen sind, durch Automaten oder andere Formen der Selbstbedienung in den Verkehr bringt,"
+          "Wer Stoffe oder Gemische, die nach der der CLP-Verordnung [VO (EG) Nr. 1272/2008] mit dem Piktogramm GHS03 (Flamme über einem Kreis) zu kennzeichnen sind, durch Automaten oder andere Formen der Selbstbedienung in den Verkehr bringt,"
         ],
         "img": "ghs_03_rondflam",
         "a": {
@@ -5751,8 +5741,7 @@
       {
         "id": "I 8 17",
         "descr": [
-          "Ein gefährlicher Stoff bzw. ein gefährliches Gemisch wird in den Verkehr gebracht. Wer muss nach",
-          "§ 5 Gefahrstoffverordnung ein Sicherheitsdatenblatt mitliefern?"
+          "Ein gefährlicher Stoff bzw. ein gefährliches Gemisch wird in den Verkehr gebracht. Wer muss nach § 5 Gefahrstoffverordnung ein Sicherheitsdatenblatt mitliefern?"
         ],
         "a": {
           "txt": "der Hersteller"
@@ -7854,8 +7843,7 @@
       {
         "id": "II 4 36",
         "descr": [
-          "Welcher Stoff oder welches Gemisch ist nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als oxidierende Flüssigkeit der Kategorie 1 eingestuft?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welcher Stoff oder welches Gemisch ist nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als oxidierende Flüssigkeit der Kategorie 1 eingestuft? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Kalium"
@@ -8197,8 +8185,7 @@
       {
         "id": "II 4 55",
         "descr": [
-          "Welche Aussage zu Eigenschaften und Wirkungen beim Lösemittel Kohlenstoffdisulfid (Schwefel- kohlenstoff) ist zutreffend?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welche Aussage zu Eigenschaften und Wirkungen beim Lösemittel Kohlenstoffdisulfid (Schwefel- kohlenstoff) ist zutreffend? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Es verbrennt ausschließlich zu CO2 und H2O."
@@ -8686,8 +8673,7 @@
       {
         "id": "II 4 82",
         "descr": [
-          "Welcher Stoff wäre mit diesem Schild richtig gekennzeichnet?",
-          "Gefahr    (612-008-00-7)   zur Analyse Gehalt > 99 %    H351   H341 H331 H311 H301 H372 H318 H317 H400   P273   P280   P308+P313 P302+P352 P305+P351+P338   P309+P310     Kann vermutlich Krebs erzeugen.   Kann vermutlich genetische Defekte verursachen. Giftig bei Einatmen.   Giftig bei   Hautkontakt. Giftig bei Verschlucken. Schädigt die Organe   bei längerer oder wiederholter Exposition. Verursacht schwere Augenschäden.   Kann allergische Hautreaktionen verursachen. Sehr giftig für Wasserorganismen.   Freisetzung in die   Umwelt vermeiden. Schutzhandschuhe/Schutzkleidung/Augenschutz/Gesichtsschutz tragen.   BEI Exposition oder falls betroffen: Ärztlichen Rat einholen/ärztliche Hilfe hinzuziehen.    BEI KONTAKT MIT DER HAUT: Mit viel Wasser und Seife waschen.   BEI KONTAKT MIT DEN AUGEN: Einige Minuten lang behutsam mit Wasser spülen. Vorhandene   Kontaktlinsen nach Möglichkeit entfernen. Weiter spülen.   BEI Exposition oder Unwohlsein: Sofort GIFTINFORMATIONS- ZENTRUM oder Arzt anrufen. (Keine   offizielle P-Satzkombination)       Firma   Mustermann AG Firmenstraße 3   80200 München   +49(0) 89 12345 1 Liter"
+          "Welcher Stoff wäre mit diesem Schild richtig gekennzeichnet?"
         ],
         "img": "II_4_82",
         "table": true,
@@ -8833,9 +8819,7 @@
       {
         "id": "II 4 90",
         "descr": [
-          "Montageschäume, bei denen die Konzentration von MDI ≥ 0,1 Gew.-% beträgt, dürfen seit dem",
-          "27. Dezember 2010 nur dann an die breite Öffentlichkeit abgegeben werden, wenn",
-          "„Das Produkt nicht bei ungenügender Lüftung verwenden oder Schutzmaske mit entsprechendem Gasfilter (Typ A1 nach EN 14387) tragen.“"
+          "Montageschäume, bei denen die Konzentration von MDI ≥ 0,1 Gew.-% beträgt, dürfen seit dem 27. Dezember 2010 nur dann an die breite Öffentlichkeit abgegeben werden, wenn"
         ],
         "a": {
           "txt": "der Erwerber eine Ausbildung zum Trockenbauer absolviert hat."
@@ -8844,7 +8828,7 @@
           "txt": "der Lieferant gewährleistet, dass die Verpackung Schutzhandschuhe enthält."
         },
         "c": {
-          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht:"
+          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht: „Das Produkt nicht bei ungenügender Lüftung verwenden oder Schutzmaske mit entsprechendem Gasfilter (Typ A1 nach EN 14387) tragen.“"
         },
         "d": {
           "txt": "der Erwerber über eine erforderliche Sachkunde verfügt."
@@ -8853,10 +8837,7 @@
       {
         "id": "II 4 91",
         "descr": [
-          "Montageschäume, bei denen die Konzentration von MDI ≥ 0,1 Gew.-% beträgt, dürfen seit dem",
-          "27. Dezember 2010 nur dann an die breite Öffentlichkeit abgegeben werden, wenn",
-          "„Bei Personen, die bereits für Diisocyanate sensibilisiert sind, kann der Umgang mit diesem Produkt allergische Reaktionen auslösen.“",
-          "„Das Produkt nicht bei ungenügender Lüftung verwenden oder Schutzmaske mit entsprechendem Gasfilter (Typ A1 nach EN 14387) tragen.“"
+          "Montageschäume, bei denen die Konzentration von MDI ≥ 0,1 Gew.-% beträgt, dürfen seit dem 27. Dezember 2010 nur dann an die breite Öffentlichkeit abgegeben werden, wenn"
         ],
         "a": {
           "txt": "der Erwerber eine Ausbildung zum Tischler absolviert hat."
@@ -8865,10 +8846,10 @@
           "txt": "der Lieferant gewährleistet, dass die Verpackung Schutzhandschuhe enthält."
         },
         "c": {
-          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht:"
+          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht: „Bei Personen, die bereits für Diisocyanate sensibilisiert sind, kann der Umgang mit diesem Produkt allergische Reaktionen auslösen.“"
         },
         "d": {
-          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht:"
+          "txt": "auf der Verpackung gut sichtbar, leserlich und unverwischbar die Aufschrift steht: „Das Produkt nicht bei ungenügender Lüftung verwenden oder Schutzmaske mit entsprechendem Gasfilter (Typ A1 nach EN 14387) tragen.“"
         }
       },
       {
@@ -10044,8 +10025,7 @@
       {
         "id": "II 7 1",
         "descr": [
-          "In einem Lagerraum finden Sie einen Behälter, der Salzsäure enthält. Leider ist das Schild mit der Konzentrationsangabe nicht mehr lesbar. Der Behälter ist aber nach Gefahrenklasse Ätz-/Reiz- wirkung auf die Haut, Kategorie 1B gekennzeichnet. Welche Konzentration hat eine auf diese Art gekennzeichnete wässrige Salzsäurelösung?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "In einem Lagerraum finden Sie einen Behälter, der Salzsäure enthält. Leider ist das Schild mit der Konzentrationsangabe nicht mehr lesbar. Der Behälter ist aber nach Gefahrenklasse Ätz-/Reiz- wirkung auf die Haut, Kategorie 1B gekennzeichnet. Welche Konzentration hat eine auf diese Art gekennzeichnete wässrige Salzsäurelösung? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "0,02 – 2 %"
@@ -10117,8 +10097,7 @@
       {
         "id": "II 7 5",
         "descr": [
-          "Welcher Gefahrenklasse nach GHS sind alle diese genannten Stoffe zugehörig? Natriumchlorat, Kaliumpermanganat, Kaliumnitrit, Chromtrioxid",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welcher Gefahrenklasse nach GHS sind alle diese genannten Stoffe zugehörig? Natriumchlorat, Kaliumpermanganat, Kaliumnitrit, Chromtrioxid Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Akute Toxozität"
@@ -10154,8 +10133,7 @@
       {
         "id": "II 7 7",
         "descr": [
-          "Welche wässrigen Lösungen folgender Stoffe sind nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als wirkt Ätzend/Reizend auf die Haut Kat. 1 B eingestuft?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welche wässrigen Lösungen folgender Stoffe sind nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als wirkt Ätzend/Reizend auf die Haut Kat. 1 B eingestuft? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Essigsäure 50 %"
@@ -10173,8 +10151,7 @@
       {
         "id": "II 7 8",
         "descr": [
-          "Welches der nachfolgenden Metalle hat in metallischer Form bzw. in Form seiner Salze oder Oxide ein kanzerogenes Potenzial?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welches der nachfolgenden Metalle hat in metallischer Form bzw. in Form seiner Salze oder Oxide ein kanzerogenes Potenzial? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Arsen"
@@ -10192,8 +10169,7 @@
       {
         "id": "II 7 9",
         "descr": [
-          "Welcher der nachfolgenden Stoffe hat in metallischer Form bzw. in Form seiner Salze oder Oxide ein kanzerogenes Potenzial?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welcher der nachfolgenden Stoffe hat in metallischer Form bzw. in Form seiner Salze oder Oxide ein kanzerogenes Potenzial? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Cadmium"
@@ -10229,9 +10205,7 @@
       {
         "id": "II 7 11",
         "descr": [
-          "Welche der folgenden Stoffe sind nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als akut toxisch",
-          "eingestuft?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welche der folgenden Stoffe sind nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] als akut toxisch eingestuft? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Arsenverbindungen"
@@ -10249,9 +10223,7 @@
       {
         "id": "II 7 12",
         "descr": [
-          "Von welcher Methanol-Konzentration an ist ein Lösemittel aus Methanol und Ethanol als akut toxisch",
-          "einzustufen und zu kennzeichnen?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Von welcher Methanol-Konzentration an ist ein Lösemittel aus Methanol und Ethanol als akut toxisch einzustufen und zu kennzeichnen? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "ab 50 %"
@@ -10413,8 +10385,7 @@
       {
         "id": "II 7 21",
         "descr": [
-          "Wie ist ein Gemisch, welches 5 % Methanol enthält, nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] richtig zu kennzeichnen?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Wie ist ein Gemisch, welches 5 % Methanol enthält, nach der CLP-Verordnung [VO (EG) Nr. 1272/2008] richtig zu kennzeichnen? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Flam. Liq. 1"
@@ -10612,8 +10583,7 @@
       {
         "id": "II 7 32",
         "descr": [
-          "Der Satz H311 „Giftig bei Hautkontakt\" ist bei welchem der folgenden Gefahrstoffe anzugeben?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Der Satz H311 „Giftig bei Hautkontakt\" ist bei welchem der folgenden Gefahrstoffe anzugeben? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Oxalsäure"
@@ -10631,8 +10601,7 @@
       {
         "id": "II 7 33",
         "descr": [
-          "Welcher Stoff oder welches Gemisch ist hautätzend Kategorie 1B bei Kennzeichnung nach der CLP- Verordnung [VO (EG) Nr. 1272/2008]?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welcher Stoff oder welches Gemisch ist hautätzend Kategorie 1B bei Kennzeichnung nach der CLP- Verordnung [VO (EG) Nr. 1272/2008]? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Methyltrichlorsilan 1 %"
@@ -10650,8 +10619,7 @@
       {
         "id": "II 7 34",
         "descr": [
-          "Welcher der folgenden Stoffe ist akut toxisch Kat. 2 bei Kennzeichnung nach der CLP-Verordnung [VO (EG) Nr. 1272/2008]?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welcher der folgenden Stoffe ist akut toxisch Kat. 2 bei Kennzeichnung nach der CLP-Verordnung [VO (EG) Nr. 1272/2008]? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Kaliumnitrit 1 %"
@@ -10669,8 +10637,7 @@
       {
         "id": "II 7 35",
         "descr": [
-          "Welches der folgenden Gemische ist „reproduktionstoxisch“ bei Kennzeichnung nach der der CLP- Verordnung [VO (EG) Nr. 1272/2008]?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welches der folgenden Gemische ist „reproduktionstoxisch“ bei Kennzeichnung nach der der CLP- Verordnung [VO (EG) Nr. 1272/2008]? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Kaliumnitrit 1 %"
@@ -10688,8 +10655,7 @@
       {
         "id": "II 7 36",
         "descr": [
-          "Welches der folgenden Gemische ist „augenreizend“ bei Kennzeichnung nach der CLP-Verordnung [VO (EG) Nr. 1272/2008]?",
-          "Beachten Sie beim Lösen die beiliegende Liste!"
+          "Welches der folgenden Gemische ist „augenreizend“ bei Kennzeichnung nach der CLP-Verordnung [VO (EG) Nr. 1272/2008]? Beachten Sie beim Lösen die beiliegende Liste!"
         ],
         "a": {
           "txt": "Methyltrichlorsilan 1 %"
@@ -11322,14 +11288,13 @@
       {
         "id": "III 1 1",
         "descr": [
-          "Was versteht man unter dem Begriff Formulierung?",
-          "z. B. in fester oder flüssiger Form"
+          "Was versteht man unter dem Begriff Formulierung?"
         ],
         "a": {
           "txt": "eine Form der schriftlichen Gebrauchsanleitung"
         },
         "b": {
-          "txt": "Zubereitung, Aufbereitung eines Wirkstoffes als anwendungsfertiges Produkt,"
+          "txt": "Zubereitung, Aufbereitung eines Wirkstoffes als anwendungsfertiges Produkt, z. B. in fester oder flüssiger Form"
         },
         "c": {
           "txt": "eine Verpackungsform"
@@ -11947,8 +11912,7 @@
       {
         "id": "III 3 11",
         "descr": [
-          "Für die Verwendung von Antikoagulanzien als Rodentizide werden aus Gründen des Umweltschutzes und Resistenzmanagements Beschränkungen in der biozidrechtlichen Zulassung erteilt. Welche Aussage ist richtig?",
-          "„Warfarin“."
+          "Für die Verwendung von Antikoagulanzien als Rodentizide werden aus Gründen des Umweltschutzes und Resistenzmanagements Beschränkungen in der biozidrechtlichen Zulassung erteilt. Welche Aussage ist richtig?"
         ],
         "a": {
           "txt": "Die Anwendung von Rodentiziden mit Wirkstoffen der 2. Generation wird im Wesentlichen auf berufsmäßige Anwender mit Sachkunde oder Schädlingsbekämpfer beschränkt."
@@ -11957,7 +11921,7 @@
           "txt": "Rodentizide Wirkstoffe der 2. Generation sind z. B. „Difenacoum“ oder „Brodifacoum“."
         },
         "c": {
-          "txt": "Rodentizide Wirkstoffe der 1. Generation sind z. B. „Chlorphacinon“, Coumatetralyl“ oder"
+          "txt": "Rodentizide Wirkstoffe der 1. Generation sind z. B. „Chlorphacinon“, Coumatetralyl“ oder „Warfarin“."
         },
         "d": {
           "txt": "Es gibt keine Unterschiede bei den Anwendungsbeschränkungen für Antikoagulanzien mit Wirkstoffen der 1. oder 2. Generation."
@@ -11966,8 +11930,7 @@
       {
         "id": "III 3 12",
         "descr": [
-          "Bei den bioziden Wirkstoffen in zugelassenen Antikoagulanzien zur Bekämpfung von Ratten und Mäusen unterscheidet man Wirkstoffe der 1. und der 2. Generation. Welche Aussage ist richtig?",
-          "2. Generation reicht in der Regel eine einmalige Köderaufnahme."
+          "Bei den bioziden Wirkstoffen in zugelassenen Antikoagulanzien zur Bekämpfung von Ratten und Mäusen unterscheidet man Wirkstoffe der 1. und der 2. Generation. Welche Aussage ist richtig?"
         ],
         "a": {
           "txt": "Mittel mit Wirkstoffen der 1. Generation dürfen auch durch nicht Sachkundige angewendet werden."
@@ -11979,7 +11942,7 @@
           "txt": "Rodentizide mit den Wirkstoffen „Bromadiolon“, Difethialon“ oder „Floucomafen“ dürfen durch private Verbraucher angewendet werden."
         },
         "d": {
-          "txt": "Wirkstoffe der 2. Generation sind giftiger als Wirkstoffe der 1. Generation, bei Wirkstoffen der"
+          "txt": "Wirkstoffe der 2. Generation sind giftiger als Wirkstoffe der 1. Generation, bei Wirkstoffen der 2. Generation reicht in der Regel eine einmalige Köderaufnahme."
         }
       },
       {
@@ -12351,8 +12314,7 @@
       {
         "id": "III 4 11",
         "descr": [
-          "Unter den Insektiziden zeichnen sich die synthetischen Pyrethroide durch hohe Wirksamkeit bereits bei geringen Aufwandmengen und durch geringe Warmblütergiftigkeit aus.",
-          "Wie ist ihre Wirkung auf Bienen und Fische?"
+          "Unter den Insektiziden zeichnen sich die synthetischen Pyrethroide durch hohe Wirksamkeit bereits bei geringen Aufwandmengen und durch geringe Warmblütergiftigkeit aus. Wie ist ihre Wirkung auf Bienen und Fische?"
         ],
         "a": {
           "txt": "Sie sind nicht bienengefährlich und nicht fischgiftig."
@@ -13450,8 +13412,7 @@
       {
         "id": "III 4 72",
         "descr": [
-          "Wirkstoffe in Biozidprodukten unterliegen derzeit einem europäischen Überprüfungsprogramm. Wo informieren Sie sich, ob Biozidprodukte der Produktart 18 (Insektizide) mit dem Wirkstoff",
-          "„Dichlorvos“ noch verkehrsfähig sind?"
+          "Wirkstoffe in Biozidprodukten unterliegen derzeit einem europäischen Überprüfungsprogramm. Wo informieren Sie sich, ob Biozidprodukte der Produktart 18 (Insektizide) mit dem Wirkstoff „Dichlorvos“ noch verkehrsfähig sind?"
         ],
         "a": {
           "txt": "in der konsolidierten Liste der EU über die Durchführungsbeschlüsse der Kommission zur Nichtgenehmigung von Wirkstoffen für die entsprechenden Biozidproduktarten, die z. B. über die Seiten der BAuA (Biozide) zugänglich ist"
@@ -14033,14 +13994,13 @@
       {
         "id": "III 5 32",
         "descr": [
-          "Welche Vorschrift besteht, damit von Biozidprodukten keine Gefahr ausgeht?",
-          "„Totenkopf mit gekreuzten Knochen“ oder „Ausrufezeichen“ angeboten werden."
+          "Welche Vorschrift besteht, damit von Biozidprodukten keine Gefahr ausgeht?"
         ],
         "a": {
           "txt": "Biozidprodukte, die für die Allgemeinheit zugänglich sind, enthalten Bestandteile, die von ihrem Verzehr abhalten und sie insbesondere für Kinder unattraktiv machen."
         },
         "b": {
-          "txt": "Biozidprodukte müssen grundsätzlich in Verpackungen mit den Gefahrenpiktogrammen"
+          "txt": "Biozidprodukte müssen grundsätzlich in Verpackungen mit den Gefahrenpiktogrammen „Totenkopf mit gekreuzten Knochen“ oder „Ausrufezeichen“ angeboten werden."
         },
         "c": {
           "txt": "Biozidprodukte, die mit Lebensmitteln, Getränken oder Futtermitteln verwechselt werden können, sind so zu verpacken, dass die Wahrscheinlichkeit eines solchen Versehens auf ein Minimum beschränkt wird."
@@ -15882,8 +15842,7 @@
       {
         "id": "III 7 91",
         "descr": [
-          "Was ist richtig?",
-          "Desinfektionsmittel, Schutzmittel, Schädlingsbekämpfungsmittel und sonstige Biozidprodukte bilden:"
+          "Was ist richtig? Desinfektionsmittel, Schutzmittel, Schädlingsbekämpfungsmittel und sonstige Biozidprodukte bilden:"
         ],
         "a": {
           "txt": "vier der sechs Hauptgruppen der 23 Biozidproduktarten."
@@ -16987,8 +16946,7 @@
       {
         "id": "III 8 53",
         "descr": [
-          "Was versteht man unter dem Begriff „Formulierung“ im Pflanzenschutz?",
-          "z. B. in fester oder flüssiger Form"
+          "Was versteht man unter dem Begriff „Formulierung“ im Pflanzenschutz?"
         ],
         "a": {
           "txt": "Baumschnitt im Obstbau"
@@ -16997,7 +16955,7 @@
           "txt": "Kalendermäßige Festlegung der Bekämpfungsmaßnahmen"
         },
         "c": {
-          "txt": "Zubereitung, Aufbereitung eines Wirkstoffes als anwendungsfertiges Produkt,"
+          "txt": "Zubereitung, Aufbereitung eines Wirkstoffes als anwendungsfertiges Produkt, z. B. in fester oder flüssiger Form"
         },
         "d": {
           "txt": "Verpackung in bestimmten Behältnissen"
@@ -17006,8 +16964,7 @@
       {
         "id": "III 8 54",
         "descr": [
-          "Landwirte sind oft bestrebt, mehrere Pflanzenschutzmittel gleichzeitig im Tank-Mix-Verfahren auszubringen.",
-          "Was ist dabei zu beachten?"
+          "Landwirte sind oft bestrebt, mehrere Pflanzenschutzmittel gleichzeitig im Tank-Mix-Verfahren auszubringen. Was ist dabei zu beachten?"
         ],
         "a": {
           "txt": "Nichts, da alle Pflanzenschutzmittel miteinander mischbar sind."

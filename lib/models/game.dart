@@ -1,20 +1,18 @@
-// Represents a active quiz
-
 import 'dart:convert';
 
+// Represents a active quiz
 class Game {
-  int section;
-  String question;
+  final int section;
+
   List<String> answeredCorrectly = [];
   List<String> answersIncorrectly = [];
+  Map<String, int> answerCounter = {};
 
   var startedAt = DateTime.now();
 
   Game(this.section);
 
-  Game.fromJson(Map<String, dynamic> map) {
-    section = map["section"];
-    question = map["question"];
+  Game.fromJson(Map<String, dynamic> map) : section = map["section"] {
     answeredCorrectly = map["answeredCorrectly"];
     answersIncorrectly = map["answersIncorrectly"];
     startedAt = DateTime.tryParse(map["startedAt"]);
@@ -23,7 +21,6 @@ class Game {
   String toJson() {
     return json.encode({
       "section": section,
-      "question": question,
       "answeredCorrectly": answeredCorrectly,
       "answersIncorrectly": answersIncorrectly,
       "startedAt": startedAt.toIso8601String()

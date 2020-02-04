@@ -1,8 +1,10 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:gfk_questionnaire/models/game.dart';
-import 'package:gfk_questionnaire/models/section.dart';
+
 import 'package:flutter/services.dart' show rootBundle;
+
+import '../models/game.dart';
+import '../models/section.dart';
 
 class QuestionsRepo {
   List<Section> sections;
@@ -22,6 +24,14 @@ class QuestionsRepo {
     return sections[index];
   }
 
+  List<Question> getAll({int section}) {
+    return sections[section].q;
+  }
+
+  Question getAtId(String qId, int section) {
+    return sections[section].q.singleWhere((element) => element.id == qId);
+  }
+
   int numberOfQuestions(int index) {
     return sections[index].q.length;
   }
@@ -33,6 +43,21 @@ class QuestionsRepo {
 
   Question getAt(int sectionIndex, int questionIndex) {
     return sections[sectionIndex].q[questionIndex];
+  }
+
+  Question getRandomNew(List<String> completedQuestions, int sectionIndex) {
+    var section = sections[sectionIndex];
+    var sectionLength = section.q.length;
+
+    if (sectionLength == completedQuestions.length) return null;
+
+    Question question;
+
+    do {
+      question = section.q[Random().nextInt(sectionLength)];
+    } while (completedQuestions.contains(question.id));
+
+    return question;
   }
 
   Question getNewOrIncorrect(Game game, int sectionIndex) {

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:gfk_questionnaire/screens/section_menu.dart';
-import 'package:gfk_questionnaire/services.dart';
+
+import 'screens/exam_screen.dart';
+import 'screens/section_menu.dart';
+import 'services.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+  Services services;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -13,31 +16,39 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Giftschein Fragen"),
-          actions: [
-            IconButton(
-              icon: Icon(Icons.info),
-              onPressed: () {
+      home: Builder(
+        builder: (context) => Scaffold(
+          appBar: AppBar(
+            title: Text("Giftschein Fragen"),
+            actions: [
+              IconButton(
+                icon: Icon(Icons.school),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (_) => ExamScreen(NewGame.exam(services))),
+                  );
+                },
+              )
+            ],
+          ),
+          body: FutureBuilder<Services>(
+            future: Services.loadDefault(),
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                print(snapshot.error);
+              }
 
-              },
-            )
-          ],
-        ),
-        body: FutureBuilder<Services>(
-          future: Services.loadDefault(),
-          builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              print(snapshot.error);
-            }
+              if (!snapshot.hasData) {
+                return Center(child: CircularProgressIndicator());
+              }
 
-            if (!snapshot.hasData) {
-              return Center(child: CircularProgressIndicator());
-            }
+              services = snapshot.data;
 
-            return SectionMenu(snapshot.data);
-          },
+              return SectionMenu(services);
+            },
+          ),
         ),
       ),
     );

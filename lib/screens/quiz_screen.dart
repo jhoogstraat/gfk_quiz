@@ -1,10 +1,13 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:gfk_questionnaire/models/answer.dart';
-import 'package:gfk_questionnaire/models/game.dart';
-import 'package:gfk_questionnaire/models/section.dart';
+import 'package:gfk_questionnaire/widgets/quiz_button.dart';
 
+import '../models/answer.dart';
+import '../models/game.dart';
+import '../models/section.dart';
 import '../services.dart';
+import '../widgets/ListTiles/attempt_list_tile.dart';
+import '../widgets/question_card.dart';
 
 class QuizScreen extends StatefulWidget {
   final Services services;
@@ -22,11 +25,9 @@ class _QuizScreenState extends State<QuizScreen> {
   Question question;
   Answer answer;
 
-  var selectedOptions = {0: false, 1: false, 2: false, 3: false};
-
-  var showAnswer = false;
-  var answeredCorrectly = false;
-  var allAnswersCorrect = false;
+  var selection = [false, false, false, false];
+  var answeredCorrectly = null;
+  var quizFinished = false;
 
   @override
   void initState() {
@@ -49,186 +50,156 @@ class _QuizScreenState extends State<QuizScreen> {
         answer = widget.services.answersRepo.getAnswer(question.id);
         print(answer.array);
       } else {
-        allAnswersCorrect = true;
+        quizFinished = true;
       }
 
-      // Reset All
-      showAnswer = false;
-      answeredCorrectly = false;
-      selectedOptions.updateAll((_, __) => false);
+      _reset();
     });
   }
 
-  _setOptionSelected(int index, bool selected) {
+  _selectionChanged(int index, bool newState) {
     setState(() {
-      selectedOptions[index] = selected;
+      selection[index] = newState;
     });
   }
 
   _checkAnswer() {
-    setState(() {
-      showAnswer = true;
-      answeredCorrectly =
-          listEquals(answer.array, selectedOptions.values.toList());
+    answeredCorrectly = listEquals(answer.array, selection);
 
-      if (answeredCorrectly) {
-        widget.game.answeredCorrectly.add(question.id);
-        widget.game.answersIncorrectly
-            .removeWhere((element) => element == question.id);
-        print(widget.game.answeredCorrectly.length);
-      } else if (!widget.game.answersIncorrectly.contains(question.id)) {
-        widget.game.answersIncorrectly.add(question.id);
-        print(widget.game.answersIncorrectly.length);
-      }
-    });
+    widget.game.answerCounter
+        .update(question.id, (value) => value + 1, ifAbsent: () => 1);
+
+    if (answeredCorrectly) {
+      widget.game.answeredCorrectly.add(question.id);
+      widget.game.answersIncorrectly
+          .removeWhere((element) => element == question.id);
+    } else if (!widget.game.answersIncorrectly.contains(question.id)) {
+      widget.game.answersIncorrectly.add(question.id);
+    }
 
     widget.services.gameRepo.save(widget.game);
+
+    setState(() {});
+  }
+
+  void _reset() {
+    answeredCorrectly = null;
+    selection = [false, false, false, false];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-            widget.services.questionsRepo.sectionAt(widget.section).short +
-                " - Frage " +
-                question.id.split(" ").last),
-        actions: [
-          IconButton(
-            icon: Text(widget.game.answeredCorrectly.length.toString() +
-                " / " +
-                widget.services.questionsRepo
-                    .numberOfQuestions(widget.section)
-                    .toString()),
-            onPressed: () {},
-          )
-        ],
-      ),
-      body: allAnswersCorrect
-          ? Center(
-              child: Text(
-              "Alle Fragen richtig beantwortet!",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                  color: Colors.green,
-                  fontSize: 30,
-                  fontWeight: FontWeight.bold),
-            ))
-          : Column(children: [
-              Expanded(
-                child: Padding(
-                  padding:
-                      const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
-                  child: Card(
-                    elevation: 2,
-                    child: SingleChildScrollView(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                horizontal: 12, vertical: 8),
-                            child: Column(children: [
-                              Text(
-                                question.descr.join(" "),
-                                style: TextStyle(fontSize: 20),
-                              ),
-                              if (question.img != null)
-                                Image.asset(
-                                    'assets/images/' + question.img + ".png")
-                            ]),
-                          ),
-                          Divider(
-                            height: 2,
-                            thickness: 2,
-                          ),
-                          ListView.separated(
-                              shrinkWrap: true,
-                              primary: false,
-                              itemBuilder: (context, index) {
-                                return Container(
-                                  color: showAnswer
-                                      ? (answer.array[index]
-                                          ? Colors.green.shade100
-                                          : Colors.red.shade100)
-                                      : Colors.transparent,
-                                  child: CheckboxListTile(
-                                      title: _optionRow(_optionAtIndex(index)),
-                                      value: selectedOptions[index],
-                                      onChanged: (newVal) {
-                                        if (!showAnswer)
-                                          _setOptionSelected(index, newVal);
-                                      }),
-                                );
-                              },
-                              separatorBuilder: (_, __) => Divider(
-                                    height: 1,
-                                  ),
-                              itemCount: 4),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
-                width: double.infinity,
-                child: RaisedButton(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: new BorderRadius.circular(18.0)),
-                  child: Text(showAnswer
-                      ? (answeredCorrectly
-                          ? "Alles richtig! Weiter"
-                          : "Leider nicht richtig.. Weiter")
-                      : "Auflösen"),
-                  padding: const EdgeInsets.symmetric(horizontal: 35),
-                  color: showAnswer
-                      ? (answeredCorrectly ? Colors.green : Colors.red)
-                      : Theme.of(context).primaryColor,
-                  textColor: Colors.white,
-                  onPressed: _revealButtonFnForCurrentState(),
-                ),
-              ),
-            ]),
+        appBar: AppBar(
+          title: Text(
+              widget.services.questionsRepo.sectionAt(widget.section).short +
+                  (quizFinished
+                      ? " - Fertig!"
+                      : " - Frage " + question.id.split(" ").last)),
+          actions: [
+            IconButton(
+              icon: Text(widget.game.answeredCorrectly.length.toString() +
+                  " / " +
+                  widget.services.questionsRepo
+                      .numberOfQuestions(widget.section)
+                      .toString()),
+              onPressed: () {},
+            )
+          ],
+        ),
+        body: quizFinished ? _resultList() : _quiz());
+  }
+
+  Widget _quiz() {
+    return Column(
+      children: [
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.only(top: 8.0, left: 8.0, right: 8.0),
+            child: QuestionCard(
+              question: question,
+              answer: answer,
+              showAnswer: answeredCorrectly != null,
+              selection: selection,
+              onChanged: (index, newState) =>
+                  _selectionChanged(index, newState),
+            ),
+          ),
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 8),
+          width: double.infinity,
+          child: QuizButton(
+            enabled: selection.reduce((value, element) => value | element),
+            answer: answeredCorrectly,
+            onCheckAnswer: () => _checkAnswer(),
+            onNextQuestion: () => _nextQuestion(),
+          ),
+        )
+      ],
     );
   }
 
-  Function _revealButtonFnForCurrentState() {
-    if (!showAnswer) {
-      if (selectedOptions.values.reduce((value, element) => value | element))
-        return () => _checkAnswer();
-      else
-        return null;
-    } else
-      return () => _nextQuestion();
-  }
+  Widget _resultList() {
+    var attempts = widget.game.answerCounter.entries.toList();
+    attempts.sort((e1, e2) => e2.value.compareTo(e1.value));
 
-  Option _optionAtIndex(int index) {
-    switch (index) {
-      case 0:
-        return question.a;
-      case 1:
-        return question.b;
-      case 2:
-        return question.c;
-      case 3:
-        return question.d;
-    }
-  }
+    var sumFirstTry = 0;
+    attempts
+        .where((element) => element.value == 1)
+        .forEach((element) => sumFirstTry++);
 
-  Widget _optionRow(Option o) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(children: [
-        if (o.txt != null) Flexible(child: Text(o.txt)),
-        if (o.img != null)
-          Flexible(
-              child: Image.asset(
-            "assets/images/" + o.img + ".png",
-            scale: 2,
-          )),
-      ]),
+    var sumFailed = attempts.length - sumFirstTry;
+
+    return Column(
+      children: <Widget>[
+        SizedBox(height: 10),
+        Text(
+          "Sofort richtig beantwortet: " +
+              sumFirstTry.toString() +
+              " (" +
+              (sumFirstTry / attempts.length * 100).toStringAsFixed(0) +
+              "%)",
+          style: TextStyle(fontSize: 20),
+        ),
+        SizedBox(height: 5),
+        Text(
+          "Öfter versucht: " +
+              sumFailed.toString() +
+              " (" +
+              (sumFailed / attempts.length * 100).toStringAsFixed(0) +
+              "%)",
+          style: TextStyle(fontSize: 20),
+        ),
+        SizedBox(height: 10),
+        Expanded(
+          child: ListView.separated(
+              itemBuilder: (_, index) => AttemptListTile(
+                    questionId: attempts[index].key,
+                    attempts: attempts[index].value,
+                    onTap: (qId) => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (_) => Scaffold(
+                                  appBar: AppBar(
+                                    title: Text(qId),
+                                  ),
+                                  body: QuestionCard(
+                                    question: widget.services.questionsRepo
+                                        .getAtId(qId, widget.section),
+                                    answer: widget.services.answersRepo
+                                        .getAnswer(qId),
+                                    showAnswer: true,
+                                    selection: [false, false, false, false],
+                                    onChanged: (_, __) {},
+                                  ),
+                                ),
+                            fullscreenDialog: true)),
+                  ),
+              separatorBuilder: (_, __) => Divider(height: 1),
+              itemCount: attempts.length),
+        ),
+      ],
     );
   }
 }

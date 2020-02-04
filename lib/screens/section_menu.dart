@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gfk_questionnaire/screens/quiz_screen.dart';
-import 'package:gfk_questionnaire/services.dart';
+
+import '../services.dart';
+import 'quiz_screen.dart';
 
 class SectionMenu extends StatelessWidget {
   final Services services;
 
   SectionMenu(this.services);
-  
+
   @override
   Widget build(BuildContext context) {
     return ListView.separated(
@@ -23,6 +24,7 @@ class SectionMenu extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
+                            // QuizScreenN(index, services)));
                             QuizScreen(services, index)));
               });
         });

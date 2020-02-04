@@ -21,11 +21,12 @@ dependencies:
     sdk: flutter
     
   shared_preferences: ^0.5.6+1
-
+  states_rebuilder: ^1.12.1
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
