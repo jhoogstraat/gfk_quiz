@@ -17591,5 +17591,23 @@
         "source": "*"
       }
     ]
+  },
+  "III 8 77": {
+    "correct": {
+      "a": true,
+      "b": true,
+      "c": false,
+      "d": true
+    },
+    "sources": [
+      {
+        "answers": [
+          "a",
+          "b",
+          "d"
+        ],
+        "source": "*"
+      }
+    ]
   }
 }
