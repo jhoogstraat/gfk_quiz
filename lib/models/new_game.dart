@@ -1,65 +1,66 @@
 import 'dart:math';
-import 'package:flutter/foundation.dart';
 
-import '../services.dart';
+import '../locator.dart';
+import '../repos/questions_repo.dart';
 import '../utils/unique_random.dart';
-import 'answer.dart';
-import 'section.dart';
+import 'question.dart';
 
 class NewGame {
-  final Services services;
-  final List<Question> openQuestions;
+  final List<Quest> openQuestions;
   final bool retryFailed;
 
-  Question currentQuestion;
-  Answer currentAnswer;
-  List<Question> completedQuestions = [];
-  List<Question> failedQuestions = []; // When retryFailed == false
+  Quest currentQuestion;
+  List<Quest> completedQuestions = [];
+  List<Quest> failedQuestions = []; // When retryFailed == false
   Map<String, int> attempts = {};
 
-  int get totalQuestions => openQuestions.length + completedQuestions.length + failedQuestions.length;
+  int get totalQuestions =>
+      openQuestions.length + completedQuestions.length + failedQuestions.length;
 
-  NewGame(this.services, this.openQuestions, {this.retryFailed}) {
+  NewGame(this.openQuestions, {this.retryFailed}) {
     nextQuestion();
   }
 
-  nextQuestion() {
+  void nextQuestion() {
     if (openQuestions.isNotEmpty) currentQuestion = openQuestions.first;
-    currentAnswer = services.answersRepo.getAnswer(currentQuestion.id);
-    print(currentAnswer.array);
+    // currentAnswer = aRepo.getAnswer(currentQuestion.id);
+    // print(currentAnswer.array);
   }
 
+  // FIXME
   bool checkAnswer(List<bool> answer) {
     attempts.update(currentQuestion.id, (value) => value + 1,
         ifAbsent: () => 1);
 
-    if (listEquals(currentAnswer.array, answer)) {
-      completedQuestions.add(currentQuestion);
-      openQuestions.remove(currentQuestion);
-      return true;
-    } else if (!retryFailed) {
-      // if we should not retry the question, we need to delete it from the openQuestions
-      failedQuestions.add(currentQuestion);
-      openQuestions.remove(currentQuestion);
-      return false;
-    }
+    // if (listEquals(currentAnswer.array, answer)) {
+    //   completedQuestions.add(currentQuestion);
+    //   openQuestions.remove(currentQuestion);
+    //   return true;
+    // } else if (!retryFailed) {
+    //   // if we should not retry the question, we need to delete it from the openQuestions
+    //   failedQuestions.add(currentQuestion);
+    //   openQuestions.remove(currentQuestion);
+    //   return false;
+    // }
 
     return false;
   }
 
   // 20 random Questions from GFK I, II and III
-  factory NewGame.exam(Services services) {
-    List<Question> gfk1 = [];
-    List<Question> gfk2 = [];
-    List<Question> gfk3 = [];
+  factory NewGame.exam() {
+    final QuestionsRepo qRepo = locator();
+
+    List<Quest> gfk1 = [];
+    List<Quest> gfk2 = [];
+    List<Quest> gfk3 = [];
 
     for (var i in List<int>.generate(25, (i) => i)) {
       if (i < 9)
-        gfk1.addAll(services.questionsRepo.getAll(section: i));
+        gfk1.addAll(qRepo.getAll(section: i));
       else if (i < 17)
-        gfk2.addAll(services.questionsRepo.getAll(section: i));
+        gfk2.addAll(qRepo.getAll(section: i));
       else
-        gfk3.addAll(services.questionsRepo.getAll(section: i));
+        gfk3.addAll(qRepo.getAll(section: i));
     }
 
     var questions = [
@@ -68,6 +69,6 @@ class NewGame {
       ...Random().uniqueInts(gfk3.length, 20).map((r) => gfk3[r]),
     ];
 
-    return NewGame(services, questions, retryFailed: false);
+    return NewGame(questions, retryFailed: false);
   }
 }

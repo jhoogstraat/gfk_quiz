@@ -3,7 +3,7 @@ import 'dart:math';
 
 import 'package:flutter/services.dart' show rootBundle;
 
-import '../models/game.dart';
+import '../models/question.dart';
 import '../models/section.dart';
 
 class QuestionsRepo {
@@ -14,7 +14,7 @@ class QuestionsRepo {
     sections = data.map((s) => Section.fromJson(s)).toList();
   }
 
-  static Future<QuestionsRepo> loadFile(String path) async {
+  static Future<QuestionsRepo> fromFile(String path) async {
     return rootBundle
         .loadString(path)
         .then((file) => QuestionsRepo.fromJson(file));
@@ -24,53 +24,38 @@ class QuestionsRepo {
     return sections[index];
   }
 
-  List<Question> getAll({int section}) {
-    return sections[section].q;
+  List<Quest> getAll({int section}) {
+    return sections[section].quests;
   }
 
-  Question getAtId(String qId, int section) {
-    return sections[section].q.singleWhere((element) => element.id == qId);
+  Quest getAtId(String qId, int section) {
+    return sections[section].quests.singleWhere((element) => element.id == qId);
   }
 
   int numberOfQuestions(int index) {
-    return sections[index].q.length;
+    return sections[index].quests.length;
   }
 
-  Question getRandom(int sectionIndex) {
+  Quest getRandom(int sectionIndex) {
     final section = sections[sectionIndex];
-    return section.q[Random().nextInt(section.q.length - 1)];
+    return section.quests[Random().nextInt(section.quests.length - 1)];
   }
 
-  Question getAt(int sectionIndex, int questionIndex) {
-    return sections[sectionIndex].q[questionIndex];
+  Quest getAt(int sectionIndex, int questionIndex) {
+    return sections[sectionIndex].quests[questionIndex];
   }
 
-  Question getRandomNew(List<String> completedQuestions, int sectionIndex) {
-    var section = sections[sectionIndex];
-    var sectionLength = section.q.length;
+  Quest getRandomNew(List<String> completedQuestions, int sectionIndex) {
+    final section = sections[sectionIndex];
+    final sectionLength = section.quests.length;
 
     if (sectionLength == completedQuestions.length) return null;
 
-    Question question;
+    Quest question;
 
     do {
-      question = section.q[Random().nextInt(sectionLength)];
+      question = section.quests[Random().nextInt(sectionLength)];
     } while (completedQuestions.contains(question.id));
-
-    return question;
-  }
-
-  Question getNewOrIncorrect(Game game, int sectionIndex) {
-    var section = sections[sectionIndex];
-    var sectionLength = section.q.length;
-
-    if (sectionLength == game.answeredCorrectly.length) return null;
-
-    Question question;
-
-    do {
-      question = section.q[Random().nextInt(sectionLength)];
-    } while (game.answeredCorrectly.contains(question.id));
 
     return question;
   }

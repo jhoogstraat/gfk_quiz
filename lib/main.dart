@@ -1,57 +1,46 @@
 import 'package:flutter/material.dart';
 
-import 'models/new_game.dart';
-import 'screens/exam_screen.dart';
+import 'locator.dart';
 import 'screens/section_menu.dart';
-import 'services.dart';
+import 'screens/settings_screen.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await setupLocator();
+  runApp(Quiz());
+}
 
-class MyApp extends StatelessWidget {
-  Services services;
-
+class Quiz extends StatelessWidget {
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'GFK Questionnaire',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Builder(
-        builder: (context) => Scaffold(
-          appBar: AppBar(
-            title: Text("Giftschein Quiz"),
-            actions: [
-              IconButton(
-                icon: Icon(Icons.school),
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => ExamScreen(NewGame.exam(services))),
-                  );
-                },
-              )
-            ],
-          ),
-          body: FutureBuilder<Services>(
-            future: Services.loadDefault(),
-            builder: (context, snapshot) {
-              if (snapshot.hasError) {
-                print(snapshot.error);
-              }
+  Widget build(BuildContext context) => MaterialApp(
+        title: 'GFK Questionnaire',
+        theme: ThemeData(
+            primarySwatch: Colors.amber,
+            pageTransitionsTheme: PageTransitionsTheme(builders: {
+              TargetPlatform.android: ZoomPageTransitionsBuilder()
+            })),
+        onGenerateRoute: _onGenerateRoute,
+      );
 
-              if (!snapshot.hasData) {
-                return Center(child: CircularProgressIndicator());
-              }
+  Route<dynamic> _onGenerateRoute(RouteSettings settings) {
+    Widget route;
 
-              services = snapshot.data;
+    switch (settings.name) {
+      case '/':
+        route = SectionMenu();
+        break;
+      case '/exam':
+        route = Scaffold(); //ExamScreen(NewGame.exam());
+        break;
+      case '/settings':
+        route = SettingsScreen();
+        break;
+    }
 
-              return SectionMenu(services);
-            },
-          ),
-        ),
-      ),
+    assert(route != null, 'Unknown Route encountered');
+
+    return MaterialPageRoute(
+      builder: (context) => route,
     );
   }
 }

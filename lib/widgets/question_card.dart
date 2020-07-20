@@ -1,63 +1,47 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
+import 'package:states_rebuilder/states_rebuilder.dart';
 
-import '../models/answer.dart';
-import '../models/section.dart';
+import '../screens/quiz_screen/quiz_view_model.dart';
 import 'ListTiles/option_list_tile.dart';
 
 class QuestionCard extends StatelessWidget {
-  final Question question;
-  final Answer answer;
-  final bool showAnswer;
-  final List<bool> selection;
-  final Function(int, bool) onChanged;
-
-  const QuestionCard(
-      {this.question,
-      this.answer,
-      this.showAnswer,
-      this.selection,
-      this.onChanged});
-
   @override
   build(BuildContext context) {
+    final viewModel = IN.get<QuizViewModel>();
+
     return Card(
       child: SingleChildScrollView(
         child: Column(
           children: [
-            _questionTitle(),
+            _questionTitle(viewModel),
             Divider(height: 2, thickness: 2),
-            _optionsList()
+            _optionsList(viewModel)
           ],
         ),
       ),
     );
   }
 
-  _questionTitle() {
+  _questionTitle(QuizViewModel viewModel) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-      child: Column(children: [
-        Text(
-          question.descr.join(" "),
-          style: TextStyle(fontSize: 20),
-        ),
-        if (question.img != null)
-          Image.asset('assets/images/' + question.img + ".png")
-      ]),
+      child: MarkdownBody(
+        data: viewModel.quest.question,
+        imageDirectory: 'assets/images/',
+      ),
     );
   }
 
-  _optionsList() {
+  _optionsList(QuizViewModel viewModel) {
     return ListView.separated(
         shrinkWrap: true,
         primary: false,
-        itemBuilder: (context, index) => OptionListTile(question.array[index],
-                selected: selection[index],
-                isCorrect: answer.array[index],
-                showAnswer: showAnswer, onChanged: (newVal) {
-              if (!showAnswer) onChanged(index, newVal);
-            }),
+        itemBuilder: (context, index) {
+          final optionKey = viewModel.displayIndexToOptionKey[index];
+          return OptionListTile(optionKey);
+        },
         separatorBuilder: (_, __) => Divider(height: 1),
-        itemCount: 4);
+        itemCount: viewModel.quest.options.length);
   }
 }
